@@ -4,9 +4,11 @@ import {InicioSessionComponent} from './modules/Login/inicio-session/inicio-sess
 import {AuthGuard} from "./core/guard/auth.guard";
 import {RegistrarComponent} from "./modules/Login/Registrar/registrar.component";
 import {PerfilComponent} from "./modules/Empresa/Perfil/perfil.component";
+import {GestionOfertasComponent} from './modules/profesional/gestion-ofertas/gestion-ofertas.component';
 
 const routes: Routes = [
-  { path: 'Login', component: InicioSessionComponent},
+  {path: 'Login', component: InicioSessionComponent},
+  {path: 'OfertaProfesional', component: GestionOfertasComponent},
   {path: 'Registro', component: RegistrarComponent},
   {path: 'PerfilEmpresa', component: PerfilComponent}
 ];
