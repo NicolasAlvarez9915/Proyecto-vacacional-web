@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {UsuarioEnvio} from "../../../data/schema/usuarios/usuario/usuario-envio";
+import {AuthenticationService} from "../../../core/service/authentication.service";
 
 @Component({
   selector: 'app-inicio-session',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InicioSessionComponent implements OnInit {
 
-  constructor() { }
+  usuario: UsuarioEnvio;
+  constructor(private Aute: AuthenticationService) { }
 
   ngOnInit(): void {
+    this.usuario = new UsuarioEnvio();
   }
-
+  InicioSession() {
+    debugger
+    this.Aute.login(this.usuario).subscribe(
+      r => {
+        console.log(r);
+      }
+    );
+  }
 }

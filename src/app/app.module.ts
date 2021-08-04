@@ -8,6 +8,9 @@ import {RegistrarComponent} from './modules/Login/registrar/registrar.component'
 import {InicioSessionComponent} from './modules/Login/inicio-session/inicio-session.component';
 import {NavComponent} from './layout/nav/nav.component';
 import {FooterComponent} from "./layout/footer/footer.component";
+import {JwtInterceptor} from "./core/interceptor/jwt.interceptor";
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -20,9 +23,11 @@ import {FooterComponent} from "./layout/footer/footer.component";
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule {
