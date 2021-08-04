@@ -6,6 +6,7 @@ import {Observable} from "rxjs";
 import {Respuesta} from "../../data/schema/base-respuesta/respuesta";
 import {map} from "rxjs/operators";
 import {Empresa} from "../../data/schema/computrabajo/empresa/empresa";
+import {Oferta} from '../../data/schema/computrabajo/Oferta/oferta';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,14 @@ export class EmpresaService {
     return this.http.post<Respuesta<Empresa>>(`${this.baseUrl}api/Empresa`,empresa)
       .pipe(map(response => {
         return response;
-      }));;
+      }));
+  }
+
+  obtenerEmpresas(): Observable<Respuesta<Oferta[]>>
+  {
+    return this.http.get<Respuesta<Oferta[]>>(`${this.baseUrl}api/Empresa/Ofertas`)
+      .pipe(map(response => {
+        return response;
+      }));
   }
 }

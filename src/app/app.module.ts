@@ -11,6 +11,10 @@ import {JwtInterceptor} from "./core/interceptor/jwt.interceptor";
 import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import {RegistrarComponent} from "./modules/Login/Registrar/registrar.component";
+import {NavMenuComponent} from './shared/nav-menu/nav-menu.component';
+import { HeaderComponent } from './shared/header/header.component';
+import {SpinnerComponent} from './shared/spinner/spinner.component';
+import { GestionOfertasComponent } from './modules/profesional/gestion-ofertas/gestion-ofertas.component';
 
 @NgModule({
   declarations: [
@@ -18,8 +22,11 @@ import {RegistrarComponent} from "./modules/Login/Registrar/registrar.component"
     PerfilComponent,
     RegistrarComponent,
     InicioSessionComponent,
-    NavComponent,
-    FooterComponent
+    NavMenuComponent,
+    FooterComponent,
+    HeaderComponent,
+    SpinnerComponent,
+    GestionOfertasComponent
   ],
   imports: [
     BrowserModule,
