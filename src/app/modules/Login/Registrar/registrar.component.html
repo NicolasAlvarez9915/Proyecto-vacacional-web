@@ -22,22 +22,71 @@
           </div>
         </div>
       </div>
+      <br>
 
       <!-- Login Form -->
       <form *ngIf="mostrar == 'Profesional'">
-        <input type="text"  id="login" class="fadeIn second" name="login" placeholder="login">
-        <input type="password"  id="password" class="fadeIn third" name="login" placeholder="password">
-        <input type="submit" class="fadeIn fourth"  value="Log In">
+
+        <div class="row">
+          <div class="col">
+            <input type="text" [(ngModel)]="profesional.identificacion" id="identificacion" class="fadeIn second" name="Identifiacion" placeholder="identificaion">
+          </div>
+          <div class="col">
+            <input type="text" [(ngModel)]="profesional.nombres" id="Nombres" class="fadeIn second" name="Nombres" placeholder="Nombres">
+          </div>
+          <div class="col">
+            <input type="text" [(ngModel)]="profesional.apellidos" id="Apellidos" class="fadeIn second" name="Apellidos" placeholder="Apellidos">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <input type="text" [(ngModel)]="profesional.telefono" id="telefono" class="fadeIn second" name="telefono" placeholder="Telefono">
+          </div>
+          <div class="col">
+            <input type="text" [(ngModel)]="usuario.correo" id="Correo" class="fadeIn second" name="Correo" placeholder="Correo">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <input type="password" [(ngModel)]="usuario.password"  id="password12" class="fadeIn second" name="password12" placeholder="Contraseña">
+          </div>
+          <div class="col">
+            <input type="password" [(ngModel)]="passwordConfirmacion"  id="password13" class="fadeIn second" name="password13" placeholder="Confirmacion contraseña">
+          </div>
+        </div>
+
+        <br>
+        <input type="submit" class="fadeIn fourth" (click)="validarRegistrar()"  value="Registrar profesional">
       </form>
 
       <form *ngIf="mostrar == 'Funcionario'">
-        <input type="text"  id="login1" class="fadeIn second" name="login" placeholder="login">
-        <input type="password"  id="password1" class="fadeIn third" name="login" placeholder="password">
-        <input type="text"  id="login2" class="fadeIn second" name="login" placeholder="login">
-        <input type="password"  id="password2" class="fadeIn third" name="login" placeholder="password">
+        <div>
+          <h5>Funcionario</h5>
+          <div class="row">
+            <div class="col">
+              <input type="text"   id="idFuncionario" class="fadeIn second" name="idfuncionario" placeholder="Identificacion">
+            </div>
+            <div class="col">
+              <input type="password" [(ngModel)]="passwordConfirmacion"  id="password13" class="fadeIn second" name="password13" placeholder="Nombres">
+            </div>
+          </div>
+        </div>
+        <div>
+          <h5>Empresa</h5>
+          <div class="row">
+            <div class="col">
+              <input type="password" [(ngModel)]="usuario.password"  id="password12" class="fadeIn second" name="password12" placeholder="Contraseña">
+            </div>
+            <div class="col">
+              <input type="password" [(ngModel)]="passwordConfirmacion"  id="password13" class="fadeIn second" name="password13" placeholder="Confirmacion contraseña">
+            </div>
+          </div>
+        </div>
         <input type="submit" class="fadeIn fourth"  value="Log In">
       </form>
-
+      <br>
       <!-- Remind Passowrd -->
       <div class="formFooter">
         <a class="underlineHover" (click)="dirigirLogin()">Loguin</a>
