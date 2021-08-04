@@ -16,10 +16,14 @@ export class InicioSessionComponent implements OnInit {
     this.usuario = new UsuarioEnvio();
   }
   InicioSession() {
-    debugger
     this.Aute.login(this.usuario).subscribe(
-      r => {
-        console.log(r);
+      response => {
+        if(response.error)
+        {
+          alert(response.mensaje);
+        }else{
+          //Mandar al perfil segun el rol
+        }
       }
     );
   }

@@ -5,6 +5,7 @@ import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
 import {UsuarioEnvio} from "../../data/schema/usuarios/usuario/usuario-envio";
 import {map} from "rxjs/operators";
+import {Respuesta} from "../../data/schema/base-respuesta/respuesta";
 
 @Injectable({
   providedIn: 'root'
@@ -27,12 +28,11 @@ export class AuthenticationService {
   }
 
   login(usuario: UsuarioEnvio) {
-    return this.http.post<any>(`${this.baseUrl}api/Usuario/InicioSesion`, usuario)
+    return this.http.post<Respuesta<UsuarioRespuesta>>(`${this.baseUrl}api/Usuario/InicioSesion`, usuario)
       .pipe(map(user => {
-        debugger
         if (!user.error) {
           localStorage.setItem('currentUser', JSON.stringify(user.object));
-          this.currentUserSubject.next(user);
+          this.currentUserSubject.next(user.object);
         }
         return user;
       }));
