@@ -29,36 +29,43 @@
 
         <div class="row">
           <div class="col">
-            <input type="text" [(ngModel)]="profesional.identificacion" id="identificacion" class="fadeIn second" name="Identifiacion" placeholder="identificaion">
+            <input type="text" [(ngModel)]="profesional.identificacion" id="identificacion" class="fadeIn second"
+                   name="Identifiacion" placeholder="identificaion">
           </div>
           <div class="col">
-            <input type="text" [(ngModel)]="profesional.nombres" id="Nombres" class="fadeIn second" name="Nombres" placeholder="Nombres">
+            <input type="text" [(ngModel)]="profesional.nombres" id="Nombres" class="fadeIn second" name="Nombres"
+                   placeholder="Nombres">
           </div>
           <div class="col">
-            <input type="text" [(ngModel)]="profesional.apellidos" id="Apellidos" class="fadeIn second" name="Apellidos" placeholder="Apellidos">
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col">
-            <input type="text" [(ngModel)]="profesional.telefono" id="telefono" class="fadeIn second" name="telefono" placeholder="Telefono">
-          </div>
-          <div class="col">
-            <input type="text" [(ngModel)]="usuario.correo" id="Correo" class="fadeIn second" name="Correo" placeholder="Correo">
+            <input type="text" [(ngModel)]="profesional.apellidos" id="Apellidos" class="fadeIn second" name="Apellidos"
+                   placeholder="Apellidos">
           </div>
         </div>
 
         <div class="row">
           <div class="col">
-            <input type="password" [(ngModel)]="usuario.password"  id="password12" class="fadeIn second" name="password12" placeholder="Contraseña">
+            <input type="text" [(ngModel)]="profesional.telefono" id="telefono" class="fadeIn second" name="telefono"
+                   placeholder="Telefono">
           </div>
           <div class="col">
-            <input type="password" [(ngModel)]="passwordConfirmacion"  id="password13" class="fadeIn second" name="password13" placeholder="Confirmacion contraseña">
+            <input type="text" [(ngModel)]="usuario.correo" id="Correo" class="fadeIn second" name="Correo"
+                   placeholder="Correo">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <input type="password" [(ngModel)]="usuario.password" id="password12" class="fadeIn second"
+                   name="password12" placeholder="Contraseña">
+          </div>
+          <div class="col">
+            <input type="password" [(ngModel)]="passwordConfirmacion" id="password13" class="fadeIn second"
+                   name="password13" placeholder="Confirmacion contraseña">
           </div>
         </div>
 
         <br>
-        <input type="submit" class="fadeIn fourth" (click)="validarRegistrar()"  value="Registrar profesional">
+        <input type="submit" class="fadeIn fourth" (click)="validarRegistrarProfesional()" value="Registrar profesional">
       </form>
 
       <form *ngIf="mostrar == 'Funcionario'">
@@ -66,10 +73,32 @@
           <h5>Funcionario</h5>
           <div class="row">
             <div class="col">
-              <input type="text"   id="idFuncionario" class="fadeIn second" name="idfuncionario" placeholder="Identificacion">
+              <input type="text" id="idFuncionario" [(ngModel)]="empresa.funcionario.identificacion" class="fadeIn second" name="idfuncionario"
+                     placeholder="Identificacion">
             </div>
             <div class="col">
-              <input type="password" [(ngModel)]="passwordConfirmacion"  id="password13" class="fadeIn second" name="password13" placeholder="Nombres">
+              <input type="text" id="NombresF" [(ngModel)]="empresa.funcionario.nombres" class="fadeIn second" name="NombresF" placeholder="Nombres">
+            </div>
+            <div class="col">
+              <input type="text" id="ApellidosF" [(ngModel)]="empresa.funcionario.apellidos" class="fadeIn second" name="ApellidosF" placeholder="Apellidos">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <input type="text" id="telefonoF" [(ngModel)]="empresa.funcionario.telefono" class="fadeIn second" name="telefonoF" placeholder="Telefono">
+            </div>
+            <div class="col">
+              <input type="text" id="CorreoF" [(ngModel)]="usuario.correo" class="fadeIn second" name="CorreoF" placeholder="Correo">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <input type="password" [(ngModel)]="usuario.password" id="password12F" class="fadeIn second" name="password12F" placeholder="Contraseña">
+            </div>
+            <div class="col">
+              <input type="password" [(ngModel)]="passwordConfirmacion" id="password13F" class="fadeIn second" name="password13F"
+                     placeholder="Confirmacion contraseña">
             </div>
           </div>
         </div>
@@ -77,14 +106,28 @@
           <h5>Empresa</h5>
           <div class="row">
             <div class="col">
-              <input type="password" [(ngModel)]="usuario.password"  id="password12" class="fadeIn second" name="password12" placeholder="Contraseña">
+              <input type="text" id="nit" [(ngModel)]="empresa.nit" class="fadeIn second" name="nit" placeholder="Nit">
             </div>
             <div class="col">
-              <input type="password" [(ngModel)]="passwordConfirmacion"  id="password13" class="fadeIn second" name="password13" placeholder="Confirmacion contraseña">
+              <input type="text" id="NombresFE" class="fadeIn second" [(ngModel)]="empresa.nombre" name="NombresFE" placeholder="Nombres">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <input type="text" id="telefonoFE" class="fadeIn second" name="telefonoF" [(ngModel)]="empresa.telefonoContacto" placeholder="Telefono">
+            </div>
+            <div class="col">
+              <input type="text" id="CorreoFE" class="fadeIn second" name="CorreoF"[(ngModel)]="empresa.correoContacto" placeholder="Correo">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <input type="text" id="Descripcion" class="fadeIn second" name="Descripcion" [(ngModel)]="empresa.descripcion" placeholder="Descrpcion"
+                     maxlength="500">
             </div>
           </div>
         </div>
-        <input type="submit" class="fadeIn fourth"  value="Log In">
+        <input type="submit" (click)="validarRegistrarFuncionario()" class="fadeIn fourth" value="Registrar funcionario">
       </form>
       <br>
       <!-- Remind Passowrd -->

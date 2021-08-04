@@ -27,13 +27,17 @@ export class AuthenticationService {
     return this.currentUserSubject.value;
   }
 
+  public currentUserValueSet(user: Respuesta<UsuarioRespuesta>){
+    localStorage.setItem('currentUser', JSON.stringify(user.object));
+    this.currentUserSubject.next(user.object);
+  }
+
   login(usuario: UsuarioEnvio) {
     return this.http.post<Respuesta<UsuarioRespuesta>>(`${this.baseUrl}api/Usuario/InicioSesion`, usuario)
       .pipe(map(user => {
-        if (!user.error) {
-          localStorage.setItem('currentUser', JSON.stringify(user.object));
-          this.currentUserSubject.next(user.object);
-        }
+          if (!user.error) {
+            this.currentUserValueSet(user);
+          }
         return user;
       }));
   }

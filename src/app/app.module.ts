@@ -4,13 +4,13 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {PerfilComponent} from './modules/Empresa/perfil/perfil.component';
-import {RegistrarComponent} from './modules/Login/registrar/registrar.component';
 import {InicioSessionComponent} from './modules/Login/inicio-session/inicio-session.component';
 import {NavComponent} from './layout/nav/nav.component';
 import {FooterComponent} from "./layout/footer/footer.component";
 import {JwtInterceptor} from "./core/interceptor/jwt.interceptor";
 import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
+import {RegistrarComponent} from "./modules/Login/Registrar/registrar.component";
 
 @NgModule({
   declarations: [
