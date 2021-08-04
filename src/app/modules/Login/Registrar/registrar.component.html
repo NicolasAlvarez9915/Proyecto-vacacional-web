@@ -1,1 +1,49 @@
-<p>registrar works!</p>
+<div style="min-height: 50vh">
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+
+      <br>
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <h3>Registrate</h3>
+      </div>
+      <br>
+
+      <div class="row">
+        <div class="col">
+          <div class="formFooter">
+            <a class="underlineHover" (click)="mostrar = 'Profesional'">Profesional</a>
+          </div>
+        </div>
+        <div class="col">
+          <div class="formFooter">
+            <a class="underlineHover" (click)="mostrar = 'Funcionario'">Funcionario Empresa</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Login Form -->
+      <form *ngIf="mostrar == 'Profesional'">
+        <input type="text"  id="login" class="fadeIn second" name="login" placeholder="login">
+        <input type="password"  id="password" class="fadeIn third" name="login" placeholder="password">
+        <input type="submit" class="fadeIn fourth"  value="Log In">
+      </form>
+
+      <form *ngIf="mostrar == 'Funcionario'">
+        <input type="text"  id="login1" class="fadeIn second" name="login" placeholder="login">
+        <input type="password"  id="password1" class="fadeIn third" name="login" placeholder="password">
+        <input type="text"  id="login2" class="fadeIn second" name="login" placeholder="login">
+        <input type="password"  id="password2" class="fadeIn third" name="login" placeholder="password">
+        <input type="submit" class="fadeIn fourth"  value="Log In">
+      </form>
+
+      <!-- Remind Passowrd -->
+      <div class="formFooter">
+        <a class="underlineHover" (click)="dirigirLogin()">Loguin</a>
+      </div>
+
+      <br>
+    </div>
+  </div>
+</div>

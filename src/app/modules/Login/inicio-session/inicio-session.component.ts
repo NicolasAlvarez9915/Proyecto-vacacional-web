@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UsuarioEnvio} from "../../../data/schema/usuarios/usuario/usuario-envio";
 import {AuthenticationService} from "../../../core/service/authentication.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-inicio-session',
@@ -10,7 +11,8 @@ import {AuthenticationService} from "../../../core/service/authentication.servic
 export class InicioSessionComponent implements OnInit {
 
   usuario: UsuarioEnvio;
-  constructor(private Aute: AuthenticationService) { }
+  constructor(private Aute: AuthenticationService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.usuario = new UsuarioEnvio();
@@ -27,4 +29,9 @@ export class InicioSessionComponent implements OnInit {
       }
     );
   }
+
+  dirigirRegistrarse(){
+    this.router.navigate(['/Registro']);
+  }
+
 }
