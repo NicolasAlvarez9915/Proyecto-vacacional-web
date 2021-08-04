@@ -24,7 +24,9 @@ export class InicioSessionComponent implements OnInit {
         {
           alert(response.mensaje);
         }else{
-          //Mandar al perfil segun el rol
+          debugger
+          const ruta = (response.object.rol == "Profesional" ) ? '/PerfilProfesional' : '/PerfilEmpresa';
+          this.router.navigate([ruta]);
         }
       }
     );

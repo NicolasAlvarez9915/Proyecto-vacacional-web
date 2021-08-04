@@ -50,6 +50,7 @@ export class RegistrarComponent implements OnInit {
     {
       alert("Las contraseñas deben ser iguales");
     }else {
+      //Validar los campos del profesional.
       this.profesionalService.Registrar(this.profesional).subscribe(
         respuestaProfesional =>{
           if(respuestaProfesional.error){
@@ -78,6 +79,8 @@ export class RegistrarComponent implements OnInit {
     {
       alert("Las contraseñas deben ser iguales");
     }else {
+
+      // validar los campos del funcionario y empresa.
       this.empresaService.Registrar(this.empresa).subscribe(
         respuestaEmpresa =>{
           if(respuestaEmpresa.error){
@@ -85,12 +88,13 @@ export class RegistrarComponent implements OnInit {
           }else{
             this.usuario.idPersona = respuestaEmpresa.object.funcionario.id;
             this.usuario.userName = this.usuario.correo;
+            this.usuario.rol = 'Empresa';
             this.usuarioService.Registrar(this.usuario).subscribe(
               respuesta =>{
                 if(respuesta.error){
                   alert(respuesta.mensaje);
                 }else {
-                  //redirigir al perfil del usuario.
+                  this.router.navigate(['/PerfilEmpresa']);
                   alert("Usuario Registrado");
                 }
               }
