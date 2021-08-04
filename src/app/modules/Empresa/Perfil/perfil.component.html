@@ -1,1 +1,47 @@
-<p>perfil works!</p>
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <h3>Perfil Funcionario</h3>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div class="formFooter">
+          <a class="underlineHover" (click)="mostrar = 'RegistrarOfertas'">Registrar Oferta</a>
+        </div>
+      </div>
+      <div class="col">
+        <div class="formFooter">
+          <a class="underlineHover" (click)="mostrar = 'Funcionario'">Funcionario Empresa</a>
+        </div>
+      </div>
+      <div class="col">
+        <div class="formFooter">
+          <a class="underlineHover" (click)="mostrar = 'Funcionario'">Funcionario Empresa</a>
+        </div>
+      </div>
+      <div class="col">
+        <div class="formFooter">
+          <a class="underlineHover" (click)="mostrar = 'Funcionario'">Funcionario Empresa</a>
+        </div>
+      </div>
+      <div class="col">
+        <div class="formFooter">
+          <a class="underlineHover" (click)="mostrar = 'Funcionario'">Funcionario Empresa</a>
+        </div>
+      </div>
+    </div>
+    <!-- Login Form -->
+    <form *ngIf="mostrar == 'RegistrarOfertas'">
+      <input type="text" [(ngModel)]="oferta.referencia" id="Referencia" class="fadeIn second" name="Referencia" placeholder="Referencia">
+      <input type="text" [(ngModel)]="oferta.descripcion" id="Descripcion" class="fadeIn second" name="Descripcion" placeholder="Descripcion">
+      <input type="submit" class="fadeIn fourth" (click)="RegistrarOferta()" value="Registrar Oferta">
+    </form>
+
+
+
+  </div>
+</div>
